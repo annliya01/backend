@@ -27,7 +27,7 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["*","djangobackend-jbli.onrender.com"]
+ALLOWED_HOSTS = ["*","http://localhost:3000","djangobackend-jbli.onrender.com"]
 
 
 # Application definition
