@@ -29,6 +29,9 @@ DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*","http://localhost:3000","djangobackend-jbli.onrender.com"]
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000"
+]
 
 # Application definition
 
