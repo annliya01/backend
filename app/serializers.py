@@ -5,7 +5,7 @@ class TaskSerializer(serializers.ModelSerializer):
     title = serializers.CharField()
     description = serializers.CharField()
     status = serializers.ChoiceField(choices=["Pending", "Completed"])
-    deadline = serializers.DateTimeField(required=False, allow_null=True)
+    deadline = serializers.DateField(required=False, allow_null=True)
 
     class Meta:
         model = Task

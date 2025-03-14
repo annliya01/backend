@@ -144,7 +144,6 @@ def task_list_create(request):
         search_query = request.query_params.get('search', None)  
 
         tasks = Task.objects.filter(user=request.user, is_deleted=False)
-
         if search_query:
             tasks = tasks.filter(
                 Q(title__icontains=search_query) | Q(description__icontains=search_query)
