@@ -27,7 +27,10 @@ SECRET_KEY = config('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = config('DEBUG', default=False, cast=bool)
 
-ALLOWED_HOSTS = ["*","http://localhost:3000","djangobackend-jbli.onrender.com"]
+ALLOWED_HOSTS = [
+    "localhost",
+    "djangobackend-jbli.onrender.com",
+]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
@@ -55,7 +58,6 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -109,8 +111,8 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": config("DB_ENGINE"),
-        "NAME": BASE_DIR / config("DB_NAME"),
+        "ENGINE": config("DB_ENGINE", default="django.db.backends.sqlite3"),
+        "NAME": config("DB_NAME", default="/opt/render/project/src/db/db.sqlite3"),
     }
 }
 
